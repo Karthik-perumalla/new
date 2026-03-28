@@ -4,19 +4,16 @@ import cv2
 import tensorflow as tf
 from PIL import Image
 
-
-IMG_SIZE = 224  # change if different
-CLASSES = ["Healthy", "Disease1", "Disease2"]  # replace with your classes
-MODEL_PATH = "model.h5"  # or your saved model path
+IMG_SIZE = 224
+CLASSES = ["Healthy", "Rust", "Other"]
+MODEL_PATH = "crop_model.h5"   
 
 
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model(MODEL_PATH)
-    return model
+    return tf.keras.models.load_model(MODEL_PATH)
 
 model = load_model()
-
 
 def preprocess(image):
     img = image.convert("RGB")
@@ -30,10 +27,10 @@ def preprocess(image):
 
 st.set_page_config(page_title="Crop Disease Detection", layout="centered")
 
-st.title("Crop Disease Detection")
+st.title(" Crop Disease Detection")
 st.write("Upload a leaf image to detect disease")
 
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png", "tif"])
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
