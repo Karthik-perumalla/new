@@ -3,3 +3,5 @@ tensorflow-cpu
 numpy
 opencv-python-headless
 pillow
+scikit-learn
+h5py
