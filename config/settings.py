@@ -10,4 +10,4 @@ CLASSES = ["Healthy", "Rust", "Other"]
 TRAIN_PATH = r"E:\project_NareshIT\data\train"
 
 
-MODEL_PATH = r"E:\project_NareshIT\models\crop_model.h5"
+MODEL_PATH = "models/crop_model.h5"
